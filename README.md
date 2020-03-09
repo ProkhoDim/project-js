@@ -1,5 +1,7 @@
 # Project-JS
 
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 # В первую очередь!
 
 - Переходим по этой ссылке: https://github.com/ProkhoDim/project-js/invitations
@@ -55,6 +57,12 @@ git checkout имя_рабочей_ветки
 
 - Делаем свои дела не портя работу других и не засоряя лишними коммитами гитхаб
 - По окончанию работы делаем финальный коммит и пушим его
+
+# Использование Commitizen:
+
+- `git add` и необходимый параметр(имя папки, файла, или точка)
+- `npm run commit`
+- Выбираем тип изменений и дальше по инструкции
 
 # ВНИМАНИЕ!!
 
