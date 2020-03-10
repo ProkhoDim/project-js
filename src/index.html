@@ -8,8 +8,7 @@
   </head>
 
   <body>
-    <div class="page_wrap">
-      <!-- Пример именования классов:
+    <!-- Пример именования классов:
       block_name-element_name--modifier_name--modifier_name
       Подчёркивания в названиях потому что так при двойном клике на слове, выберется всё название
       
@@ -17,6 +16,31 @@
     data-action="next" - для кнопок и ссылок (data-action="click")
     id - для инпутов
     js-element - для остальных элементов
-    --></div>
+    -->
+    <div class="page">
+      <div class="navigation_background">
+        <header class="header container">
+          <h1 class="logo"><a class="logo-link" href="#">Online Cinema</a></h1>
+          <nav class="navigation">
+            <ul class="menu_list">
+              <li class="menu_list-item">
+                <a href="#" class="menu_list-link">Home</a>
+              </li>
+              <li class="menu_list-item">
+                <a href="#" class="menu_list-link">My Library</a>
+              </li>
+            </ul>
+          </nav>
+        </header>
+      </div>
+      <div class="main_content container js-result"></div>
+      <footer class="footer">
+        <div class="container">
+          <p class="footer_text">
+            2020 Create by <a href="#" class="footer_text-item">Lebarde Team</a>
+          </p>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
