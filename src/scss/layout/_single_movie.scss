@@ -9,12 +9,12 @@
 
   & .about {
     font-weight: 500;
-    font-size: 3vh;
+    font-size: 1.2rem;
     margin-bottom: 16px;
   }
 
   & .description {
-    font-size: 2vh;
+    font-size: 1rem;
     color: #372c48;
     line-height: 18px;
   }
@@ -25,12 +25,12 @@
 
     & .title {
       font-weight: 500;
-      font-size: 3vh;
+      font-size: 1.5rem;
       margin-bottom: 16px;
     }
 
     & .info {
-      font-size: 2vh;
+      font-size: 1rem;
       margin-bottom: 20px;
       color: #000;
 
@@ -64,16 +64,14 @@
     & .poster {
       margin: 0;
       padding: 0;
-      width: 40%;
+      width: 30%;
     }
 
     & .main_info {
       width: 50%;
 
       & .title {
-        font-weight: 500;
-        font-size: 6vh;
-        margin-bottom: 16px;
+        font-size: 2rem;
       }
     }
   }
