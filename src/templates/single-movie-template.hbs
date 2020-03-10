@@ -1,0 +1,26 @@
+<img class="poster" src="{{poster_path}}" alt="{{original_title}}">
+<section class="main_info">
+    {{!-- need take just year from  {{release_date}} bellow--}}
+    <h2 class="title">{{title}} ({{release_date}})</h2>
+    <table class="info">
+        <tr class="info-votes">
+            <td class="col1">vote/votes</td>
+            <td class="info-votes_value">{{vote_average}}/{{vote_count}}</td>
+        </tr>
+        <tr class="info-popularity">
+            <td class="col1">popularity</td>
+            <td class="info-popularity_value">{{popularity}}</td>
+        </tr>
+        <tr class="info-name">
+            <td class="col1">original title</td>
+            <td class="info-name_value">{{title}}</td>
+        </tr>
+        <tr class="info-genre">
+            <td class="col1" valign="top">genre</td>
+            {{!-- need return string with comma separated genre {{genre_ids}} bellow--}}
+            <td class="info-genre_value">{{genre_ids}}</td>
+        </tr>
+    </table>
+    <h2 class="about">About</h2>
+    <p class="description">{{overview}}</p>
+</section>
