@@ -33,7 +33,55 @@
           </nav>
         </header>
       </div>
-      <div class="main_content container js-result"></div>
+      <section class="form-section">
+        <div class="container">
+          <form action="#" class="search-form" id="search-form">
+            <div class="search-form_wrap">
+              <div class="search-form_elem">
+                <label for="search-form_input"
+                  ><i class="material-icons search-form_icon">search</i></label
+                >
+              </div>
+              <div class="search-form_elem search-form_elem-input">
+                <input
+                  id="search-form_input"
+                  type="text"
+                  placeholder="Write movie name and click Enter"
+                  class="search-form_input"
+                  list="languages"
+                />
+                <datalist
+                  id="search-form_datalist"
+                  class="search-form_datalist"
+                >
+                  <option value="Example"></option>
+                </datalist>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- Movie-list -->
+        <!-- <ul></ul> -->
+      </section>
+      <div class="main_content container js-result">
+        <div class="pagination">
+          <button
+            class="pagination_btn pagination_btn-prev"
+            id="pagination_btn-prev"
+          >
+            prev
+          </button>
+          <div class="pagination_page">
+            <span class="pagination_value" id="pagination_value">1</span>
+          </div>
+          <button
+            class="pagination_btn pagination_btn-next"
+            id="pagination_btn-next"
+          >
+            next
+          </button>
+        </div>
+      </div>
       <footer class="footer">
         <div class="container">
           <p class="footer_text">
