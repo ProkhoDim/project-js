@@ -30,7 +30,6 @@ export default {
       imageURL: `https://image.tmdb.org/t/p/w500${data.poster_path}`,
       genres: data.genres
         .map(item => {
-          console.log(item.name);
           return item.name.toLowerCase();
         })
         .join(', '),
@@ -39,6 +38,18 @@ export default {
       overview: data.overview,
       vote: data.vote_average,
       votes: data.vote_count,
+    };
+  },
+
+  async getWatchedMovie(id) {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${this.API_KEY}&language=en-US`,
+    );
+    const data = await response.json();
+    return {
+      imageURL: `https://image.tmdb.org/t/p/w500${data.poster_path}`,
+      title: data.title,
+      vote: data.vote_average,
     };
   },
 
