@@ -1,0 +1,78 @@
+.main_content {
+  font-family: 'Roboto';
+
+  & .poster {
+    width: 100%;
+    padding-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  & .about {
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+  }
+
+  & .description {
+    font-size: 1rem;
+    color: #372c48;
+    line-height: 18px;
+  }
+
+  & .main_info {
+    width: 100%;
+    margin-bottom: 26px;
+
+    & .title {
+      font-weight: 500;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+
+    & .info {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #000;
+
+      border-collapse: collapse;
+      width: 100%;
+
+      & .col1 {
+        width: 120px;
+      }
+
+      & td {
+        padding: 6px 14px;
+      }
+
+      & tr:nth-child(2n + 1) {
+        background: #addad6;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .main_content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding-top: 20px;
+    margin-bottom: 20px;
+
+    & .poster {
+      margin: 0;
+      padding: 0;
+      width: 30%;
+    }
+
+    & .main_info {
+      width: 50%;
+
+      & .title {
+        font-size: 2rem;
+      }
+    }
+  }
+}
