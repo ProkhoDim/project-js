@@ -1,0 +1,71 @@
+.library_page-buttons {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0 15px;
+
+  & button {
+    width: 140px;
+    height: 40px;
+    border: none;
+    background-color: white;
+    border-bottom: 2px solid #9895a2;
+    font-family: 'Roboto';
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  & .button--is_active {
+    color: white;
+    background-color: #77c1bb;
+    border-bottom: none;
+  }
+}
+
+.cards-item {
+  position: relative;
+  margin-bottom: 12px;
+}
+.cards-item img {
+  width: 300px;
+  height: 160px;
+  object-fit: cover;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.film_name {
+  width: 90%;
+  color: white;
+  font-family: 'Roboto';
+  font-size: 1rem;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+
+.film_rate {
+  font-family: 'Roboto';
+  font-weight: 500;
+  position: absolute;
+  text-align: center;
+  padding: 5px 10px;
+  background: #77c1bb;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #000;
+  top: 15px;
+  right: 15px;
+}
+@media screen and (min-width: 1024px) {
+  .library_page-container {
+    max-width: 700px;
+  }
+  .library_page-buttons button {
+    width: 350px;
+  }
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
