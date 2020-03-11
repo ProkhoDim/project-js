@@ -1,3 +1,4 @@
+// Search form_______________________________
 .form-section {
   filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.23));
   background-color: #f3f6f6;
@@ -12,12 +13,6 @@
     align-items: center;
   }
 
-  // &_elem {
-  //   flex: 0 0 10%;
-  //   &-input {
-  //     flex: 0 0 70%;
-  //   }
-  // }
   &_icon {
     padding-top: 5px;
     font-size: 30px;
@@ -32,6 +27,7 @@
     line-height: 19px;
     outline: none;
     background-color: transparent;
+    font-family: 'Roboto';
   }
   &::after {
     position: absolute;
@@ -44,6 +40,7 @@
   }
 }
 
+// Pagination_______________________________
 .pagination {
   text-align: center;
   height: 100px;
@@ -86,5 +83,6 @@
     color: #556270;
     outline: none;
     background-color: #f3f6f6;
+    font-family: 'Droid Sans';
   }
 }
