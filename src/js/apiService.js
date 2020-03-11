@@ -38,6 +38,8 @@ export default {
       overview: data.overview,
       vote: data.vote_average,
       votes: data.vote_count,
+      release_date: data.release_date.split('-')[0],
+      popularity: data.popularity,
     };
   },
 
@@ -68,8 +70,11 @@ export default {
     const data = await response.json();
     return data.results.map(item => ({
       imageURL: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
+      original_title: item.original_title,
       title: item.title,
+      release_date: item.release_date.split('-')[0],
       vote: item.vote_average,
+      id: item.id,
     }));
   },
 };
