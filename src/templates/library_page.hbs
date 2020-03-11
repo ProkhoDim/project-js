@@ -10,6 +10,11 @@
 
     </div>
 
-    {{> filmList this}}
+    <ul class="cards">
+        <li class="cards-item">
+            <img src="{{poster_path}}" alt="{{original_title}}">
+            <p class="film_name">{{title}}({{release_date}})</p>
+        </li>
+    </ul>
 
 </div>
