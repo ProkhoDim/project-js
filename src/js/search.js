@@ -1,41 +1,34 @@
 import apiService from './apiService';
+import refs from './refs';
 import searchListTemplate from '../templates/cardsList.hbs';
-import movieDetails from '../templates/single-movie-template.hbs';
-
-const refs = {
-  searchInput: document.querySelector('#search-form_input'),
-  mainContent: document.querySelector('.main_content'),
-};
+import { insertItems, clear, hideItem, sowHiddenItem } from './markup';
 
 refs.searchInput.addEventListener('keypress', event => {
-  const inputValue = refs.searchInput.value;
+  apiService.searchText = refs.searchInput.value;
 
   if (event.keyCode === 13) {
     event.preventDefault();
-
-    apiService.getSearchedMovie(inputValue).then(data => {
-      clear(refs.mainContent);
-      insertItems(data, searchListTemplate);
-    });
+    apiService.resetPage();
+    sowHiddenItem(refs.pagination);
+    randerByQuery(apiService.searchText);
   }
 });
 
-refs.mainContent.addEventListener('click', event => {
-  event.stopPropagation();
-  const movieId = event.target.parentElement.dataset.id;
-  if (movieId === undefined) return;
-
-  apiService.getMovie(movieId).then(data => {
-    clear(refs.mainContent);
-    insertItems(data, movieDetails);
-  });
+refs.paginationBtnNext.addEventListener('click', () => {
+  apiService.updatePage();
+  randerByQuery(apiService.searchText);
 });
 
-function insertItems(items, template) {
-  const murkup = template(items);
-  refs.mainContent.insertAdjacentHTML('beforeend', murkup);
-}
+refs.paginationBtnPrev.addEventListener('click', () => {
+  if (apiService.page === 1) return;
+  apiService.downgradePage();
+  randerByQuery(apiService.searchText);
+});
 
-function clear(container) {
-  container.innerHTML = '';
+function randerByQuery(query) {
+  apiService.getSearchedMovie(query).then(data => {
+    clear(refs.mainContent);
+    refs.paginationValue.innerHTML = apiService.page;
+    insertItems(data, searchListTemplate);
+  });
 }

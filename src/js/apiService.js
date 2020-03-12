@@ -5,6 +5,10 @@ export default {
   updatePage() {
     this.page += 1;
   },
+  downgradePage() {
+    if (!this.page) return;
+    this.page -= 1;
+  },
   resetPage() {
     this.page = 1;
   },
@@ -15,7 +19,10 @@ export default {
     );
     const data = await response.json();
     return data.results.map(item => ({
-      imageURL: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
+      imageURL:
+        item.poster_path === null
+          ? 'https://consaltliga.com.ua/wp-content/themes/consultix/images/no-image-found-360x250.png'
+          : `https://image.tmdb.org/t/p/w500${item.poster_path}`,
       title: item.title,
       vote: item.vote_average,
     }));
@@ -27,7 +34,10 @@ export default {
     );
     const data = await response.json();
     return {
-      imageURL: `https://image.tmdb.org/t/p/w500${data.poster_path}`,
+      imageURL:
+        data.poster_path === null
+          ? 'https://consaltliga.com.ua/wp-content/themes/consultix/images/no-image-found-360x250.png'
+          : `https://image.tmdb.org/t/p/w500${data.poster_path}`,
       genres: data.genres
         .map(item => {
           return item.name.toLowerCase();
@@ -40,6 +50,7 @@ export default {
       votes: data.vote_count,
       release_date: data.release_date.split('-')[0],
       popularity: data.popularity,
+      id: data.id,
     };
   },
 
@@ -49,7 +60,10 @@ export default {
     );
     const data = await response.json();
     return {
-      imageURL: `https://image.tmdb.org/t/p/w500${data.poster_path}`,
+      imageURL:
+        data.poster_path === null
+          ? 'https://consaltliga.com.ua/wp-content/themes/consultix/images/no-image-found-360x250.png'
+          : `https://image.tmdb.org/t/p/w500${data.poster_path}`,
       title: data.title,
       vote: data.vote_average,
     };
@@ -69,7 +83,10 @@ export default {
     );
     const data = await response.json();
     return data.results.map(item => ({
-      imageURL: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
+      imageURL:
+        item.poster_path === null
+          ? 'https://consaltliga.com.ua/wp-content/themes/consultix/images/no-image-found-360x250.png'
+          : `https://image.tmdb.org/t/p/w500${item.poster_path}`,
       original_title: item.original_title,
       title: item.title,
       release_date: item.release_date.split('-')[0],
