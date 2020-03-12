@@ -19,11 +19,14 @@
     color: #372c48;
     line-height: 18px;
   }
-
-  & .button_later {
+  & .watching_buttons {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  & .button {
     position: relative;
-    flex: 0 0 35%;
-    width: 100%;
+    // flex: 0 0 35%;
+    width: 45%;
     border: 1px solid #c8d1d1;
     border-radius: 5px;
     height: 40px;
@@ -100,7 +103,7 @@
       }
 
       & .button_later {
-        width: 320px;
+        // width: 320px;
         align-self: center;
       }
     }

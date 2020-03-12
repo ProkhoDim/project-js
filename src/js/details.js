@@ -2,6 +2,7 @@ import apiService from './apiService';
 import refs from './refs';
 import movieDetails from '../templates/single-movie-template.hbs';
 import { insertItems, clear, hideItem } from './markup';
+import * as localStor from './localStorage';
 
 refs.mainContent.addEventListener('click', event => {
   event.stopPropagation();
@@ -18,22 +19,14 @@ refs.mainContent.addEventListener('click', event => {
     })
     .then(() => {
       const btnWatchLater = document.querySelector('.button_later');
-
-      btnWatchLater.addEventListener('click', event => {
-        const LocalStorIdsdArr = JSON.parse(localStorage.getItem('ids'));
-        const movieId = btnWatchLater.parentElement.dataset.id;
-        const watchLaterIdsArr = [];
-
-        if (LocalStorIdsdArr === null) {
-          watchLaterIdsArr.push(movieId);
-          localStorage.setItem('ids', JSON.stringify(watchLaterIdsArr));
-        } else if (!LocalStorIdsdArr.includes(movieId)) {
-          watchLaterIdsArr.push(...LocalStorIdsdArr);
-          watchLaterIdsArr.push(movieId);
-          localStorage.setItem('ids', JSON.stringify(watchLaterIdsArr));
-        }
-
-        btnWatchLater.removeEventListener;
-      });
+      const btnWatched = document.querySelector('.button_watched');
+      localStor.addItem(btnWatched, 'watchedIds', 'watchLaterIds');
+      localStor.addItem(btnWatchLater, 'watchLaterIds', 'watchedIds');
+      // btnWatched.addEventListener(
+      //   'click',
+      //   localStor.addItem.call(Event, 'watchedIds'),
+      // );
+      // btnWatchLater.addEventListener('click', localStor.addWatchLaterItem);
+      // btnWatched.addEventListener('click', localStor.addWatchedItem);
     });
 });

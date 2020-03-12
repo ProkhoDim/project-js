@@ -1,5 +1,5 @@
 <img class="poster" src="{{imageURL}}" alt="{{original_title}}">
-<section class="main_info" data-id="{{id}}">
+<section class="main_info">
     <h2 class="title">{{title}} ({{release_date}})</h2>
     <table class="info">
         <tr class="info-votes">
@@ -21,7 +21,9 @@
     </table>
     <h2 class="about">About</h2>
     <p class="description">{{overview}}</p>
-    <button class="button_later">
-        Watch later
-    </button>
+    <div class="watching_buttons">
+        <button class="button button_watched" data-id="{{id}}">Watched</button>
+        <button class="button button_later" data-id="{{id}}">Watch later</button>
+    </div>
+
 </section>
