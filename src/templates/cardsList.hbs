@@ -1,9 +1,11 @@
 <div class="container">
     <ul class="cards">
+        {{#each movies}}
         <li class="cards-item">
-            <img src="{{poster_path}}" alt="{{original_title}}">
-            <p class="film_name">{{title}}({{release_date}})</p>
-            <p class="film_rate js_film_rate">{{vote}}</p>
+            <img src="{{this.imageURL}}" alt="{{this.title}}">
+            <p class="film_name">{{this.title}}</p>
+            <p class="film_rate js_film_rate">{{this.vote}}</p>
         </li>
+        {{/each}}
     </ul>
 </div>

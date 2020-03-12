@@ -1,3 +1,4 @@
 import './apiService';
 import './markup';
-import './app';
+// import './app';
+import './simpleRouter';

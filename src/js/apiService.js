@@ -14,11 +14,13 @@ export default {
       `https://api.themoviedb.org/3/movie/popular?api_key=${this.API_KEY}&language=en-US&page=${this.page}&region=UA`,
     );
     const data = await response.json();
-    return data.results.map(item => ({
-      imageURL: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
-      title: item.title,
-      vote: item.vote_average,
-    }));
+    return {
+      movies: data.results.map(item => ({
+        imageURL: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
+        title: item.title,
+        vote: item.vote_average,
+      })),
+    };
   },
 
   async getMovie(id) {
