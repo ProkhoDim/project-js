@@ -43,16 +43,21 @@ export default {
     };
   },
 
-  async getWatchedMovie(id) {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${this.API_KEY}&language=en-US`,
-    );
-    const data = await response.json();
-    return {
-      imageURL: `https://image.tmdb.org/t/p/w500${data.poster_path}`,
-      title: data.title,
-      vote: data.vote_average,
-    };
+  getListOfLibraryMovie(param) {
+    // const parsedArr = JSON.parse(arr);
+    return JSON.parse(localStorage.getItem(param));
+    // const response = await fetch(
+    //   `https://api.themoviedb.org/3/movie/${id}?api_key=${this.API_KEY}&language=en-US`,
+    // );
+    // const data = await response.json();
+    // const data = await response.json();
+    // return {
+    //   imageURL: `https://image.tmdb.org/t/p/w500${data.poster_path}`,
+    //   title: data.title,
+    //   vote: data.vote_average,
+    //   id: data.id,
+    // };
+    // return response.json();
   },
 
   async getSearchedMovie(query) {

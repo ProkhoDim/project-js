@@ -1,10 +1,10 @@
 <div class="container">
     <ul class="cards">
-        {{#each movies}}
+        {{#each this}}
         <li class="cards-item">
-            <img src="{{this.imageURL}}" alt="{{this.title}}">
-            <p class="film_name">{{this.title}}</p>
-            <p class="film_rate js_film_rate">{{this.vote}}</p>
+            <img src="{{imageURL}}" alt="{{title}}">
+            <p class="film_name">{{title}}</p>
+            <p class="film_rate js_film_rate">{{vote}}</p>
         </li>
         {{/each}}
     </ul>
