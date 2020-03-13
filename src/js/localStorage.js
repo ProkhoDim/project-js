@@ -29,29 +29,33 @@
 //   }
 // }
 
-export function addItem(elem, localStorageKey, checkingParam) {
+export function addItem(elem, currentKey, checkedKey) {
   elem.addEventListener('click', e => {
     if (e.currentTarget !== e.target) return;
-    const LocalStorIdsdArr = JSON.parse(localStorage.getItem(localStorageKey));
-    const movieId = e.target.dataset.id;
-    console.log(!!LocalStorIdsdArr);
-    if (!LocalStorIdsdArr) {
-      localStorage.setItem(localStorageKey, JSON.stringify([movieId]));
-    } else if (!LocalStorIdsdArr.includes(movieId)) {
-      localStorage.setItem(
-        localStorageKey,
-        JSON.stringify(LocalStorIdsdArr.concat(movieId)),
-      );
-    }
-    if (checkingParam) checkLocalStorage(localStorageKey, checkingParam);
+    setLocalStorageIdsOnClick(e, currentKey);
+
+    if (!checkedKey) return;
+    rewrightLocalStorage(currentKey, checkedKey);
   });
 }
 
-function checkLocalStorage(checkParam, clearParam) {
-  const checkingArray = JSON.parse(localStorage.getItem(checkParam));
-  const clearingArray = JSON.parse(localStorage.getItem(clearParam));
+function setLocalStorageIdsOnClick(event, key) {
+  const LocalStorIdsdArr = JSON.parse(localStorage.getItem(key));
+  const movieId = event.target.dataset.id;
+  console.log(!!LocalStorIdsdArr);
 
-  if (!clearingArray) return;
-  const array = clearingArray.filter(item => !checkingArray.includes(item));
-  return localStorage.setItem(clearParam, JSON.stringify(array));
+  if (!LocalStorIdsdArr) {
+    localStorage.setItem(key, JSON.stringify([movieId]));
+  } else if (!LocalStorIdsdArr.includes(movieId)) {
+    localStorage.setItem(key, JSON.stringify(LocalStorIdsdArr.concat(movieId)));
+  }
+}
+
+function rewrightLocalStorage(check, clear) {
+  const checkedArray = JSON.parse(localStorage.getItem(check));
+  const clearedArray = JSON.parse(localStorage.getItem(clear));
+
+  if (!clearedArray) return;
+  const array = clearedArray.filter(item => !checkedArray.includes(item));
+  return localStorage.setItem(clear, JSON.stringify(array));
 }
