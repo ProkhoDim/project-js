@@ -43,8 +43,7 @@ export function addItem(elem, localStorageKey, checkingParam) {
         JSON.stringify(LocalStorIdsdArr.concat(movieId)),
       );
     }
-
-    checkLocalStorage(localStorageKey, checkingParam);
+    if (checkingParam) checkLocalStorage(localStorageKey, checkingParam);
   });
 }
 
