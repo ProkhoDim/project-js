@@ -2,6 +2,7 @@ import apiService from './apiService';
 import refs from './refs';
 import searchListTemplate from '../templates/cardsList.hbs';
 import { insertItems, clear, hideItem, sowHiddenItem } from './markup';
+import libraryPage from '../templates/library_page.hbs';
 
 refs.searchInput.addEventListener('keypress', event => {
   apiService.searchText = refs.searchInput.value;
@@ -32,3 +33,20 @@ function randerByQuery(query) {
     insertItems(data, searchListTemplate);
   });
 }
+
+refs.homeRef.addEventListener('click', e => {
+  e.preventDefault();
+  randerByQuery(apiService.searchText);
+  sowHiddenItem(refs.searchForm);
+  sowHiddenItem(refs.pagination);
+});
+
+refs.libraryRef.addEventListener('click', e => {
+  e.preventDefault();
+
+  hideItem(refs.searchForm);
+  hideItem(refs.pagination);
+  refs.mainContent.innerHTML =
+    libraryPage() +
+    searchListTemplate(apiService.getWatchedMovie('watchedIds'));
+});

@@ -6,4 +6,6 @@ export default {
   paginationBtnPrev: document.querySelector('#pagination_btn-prev'),
   paginationBtnNext: document.querySelector('#pagination_btn-next'),
   paginationValue: document.querySelector('#pagination_value'),
+  homeRef: document.querySelector('a[href="home"]'),
+  libraryRef: document.querySelector('a[href="my-library"]'),
 };

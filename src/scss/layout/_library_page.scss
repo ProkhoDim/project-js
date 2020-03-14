@@ -1,4 +1,4 @@
-.library_page-buttons {
+.library-page_buttons {
   display: flex;
   justify-content: center;
   padding: 12px 0 15px;
@@ -31,7 +31,7 @@
 }
 .cards-item img {
   width: 300px;
-  height: 160px;
+  height: auto;
   object-fit: cover;
   margin: 0 auto;
   border-radius: 10px;

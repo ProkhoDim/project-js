@@ -3,6 +3,7 @@ import refs from './refs';
 import movieDetails from '../templates/single-movie-template.hbs';
 import { insertItems, clear, hideItem } from './markup';
 import * as localStor from './localStorage';
+import normalizedObj from './objToLocalStor';
 
 refs.mainContent.addEventListener('click', event => {
   event.stopPropagation();
@@ -13,20 +14,16 @@ refs.mainContent.addEventListener('click', event => {
     .getMovie(movieId)
     .then(data => {
       clear(refs.mainContent);
-      //   hideItem(refs.searchForm);
+      hideItem(refs.searchForm);
       hideItem(refs.pagination);
       insertItems(data, movieDetails);
+      return data;
     })
-    .then(() => {
+    .then(data => {
+      normalizedObj(data);
       const btnWatchLater = document.querySelector('.button_later');
       const btnWatched = document.querySelector('.button_watched');
       localStor.addItem(btnWatched, 'watchedIds', 'watchLaterIds');
       localStor.addItem(btnWatchLater, 'watchLaterIds', 'watchedIds');
-      // btnWatched.addEventListener(
-      //   'click',
-      //   localStor.addItem.call(Event, 'watchedIds'),
-      // );
-      // btnWatchLater.addEventListener('click', localStor.addWatchLaterItem);
-      // btnWatched.addEventListener('click', localStor.addWatchedItem);
     });
 });
