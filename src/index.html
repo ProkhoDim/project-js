@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Online Сinema</title>
-  </head>
 
-  <body>
-    <!-- Пример именования классов:
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Online Сinema</title>
+</head>
+
+<body>
+  <!-- Пример именования классов:
       block_name-element_name--modifier_name--modifier_name
       Подчёркивания в названиях потому что так при двойном клике на слове, выберется всё название
       
@@ -17,113 +18,99 @@
     id - для инпутов
     js-element - для остальных элементов
     -->
-    <div class="page">
-      <div class="navigation_background">
-        <header class="header container">
-          <h1 class="logo"><a class="logo-link" href="#">Online Cinema</a></h1>
-          <nav class="navigation">
-            <ul class="menu_list">
-              <li class="menu_list-item">
-                <a href="#" class="menu_list-link">Home</a>
-              </li>
-              <li class="menu_list-item">
-                <a href="#" class="menu_list-link">My Library</a>
-              </li>
-            </ul>
-          </nav>
-        </header>
-      </div>
-      <!-- <<<<<<<<  SEARCH FORM EXAMPLE  >>>>>>>>> -->
-      <section class="form-section">
-        <div class="container">
-          <form action="#" class="search-form" id="search-form">
-            <div class="search-form_wrap">
-              <div class="search-form_elem">
-                <label for="search-form_input"
-                  ><i class="material-icons search-form_icon">search</i></label
-                >
-              </div>
-              <div class="search-form_elem search-form_elem-input">
-                <input
-                  id="search-form_input"
-                  type="text"
-                  placeholder="Write movie name and click Enter"
-                  class="search-form_input"
-                  list="languages"
-                />
-                <datalist
-                  id="search-form_datalist"
-                  class="search-form_datalist"
-                >
-                  <option value="Example"></option>
-                </datalist>
-              </div>
+  <div class="page">
+    <div class="navigation_background">
+      <header class="header container">
+        <h1 class="logo"><a class="logo-link" href="#">Online Cinema</a></h1>
+        <nav class="navigation">
+          <ul class="menu_list">
+            <li class="menu_list-item">
+              <a href="#" class="menu_list-link">Home</a>
+            </li>
+            <li class="menu_list-item">
+              <a href="#" class="menu_list-link">My Library</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+    <!-- <<<<<<<<  SEARCH FORM EXAMPLE  >>>>>>>>> -->
+    <section class="form-section">
+      <div class="container">
+        <form action="#" class="search-form" id="search-form">
+          <div class="search-form_wrap">
+            <div class="search-form_elem">
+              <label for="search-form_input"><i class="material-icons search-form_icon">search</i></label>
             </div>
-          </form>
-        </div>
-        <!-- Movie-list
-      <!-- <ul></ul> -->
-      </section>
-      <!-- <<<<<<<<  SEARCH FORM EXAMPLE  >>>>>>>>> -->
-
-      <!-- <<<<<<<<  PAGINATION EXAMPLE  >>>>>>>>> -->
-      <div class="main_content container js-result">
-        <div class="pagination">
-          <button
-            class="pagination_btn pagination_btn-prev"
-            id="pagination_btn-prev"
-          >
-            prev
-          </button>
-          <div class="pagination_page">
-            <span class="pagination_value" id="pagination_value">1</span>
+            <div class="search-form_elem search-form_elem-input">
+              <input id="search-form_input" type="text" placeholder="Write movie name and click Enter"
+                class="search-form_input" list="languages" />
+              <datalist id="search-form_datalist" class="search-form_datalist">
+                <option value="Example"></option>
+              </datalist>
+            </div>
           </div>
-          <button
-            class="pagination_btn pagination_btn-next"
-            id="pagination_btn-next"
-          >
-            next
-          </button>
-        </div>
+        </form>
       </div>
-      <!-- <<<<<<<<  PAGINATION EXAMPLE  >>>>>>>>> -->
-      <div class="main_content container js-result">
-        <!-- <<<<<<<<  SINGLE PAGE EXAMPLE  >>>>>>>>> -->
-        <!-- <img
-          class="poster"
-          src="https://cdn.pixabay.com/photo/2015/09/19/23/01/cat-947816_960_720.jpg"
-          alt=""
-        />
-        <section class="main_info">
-          <h2 class="title">Dumbo (<span class="year">2019</span>)</h2>
-          <table class="info">
-            <tr class="info-votes">
-              <td class="col1">vote/votes</td>
-              <td class="info-votes_value">6.5/1402</td>
-            </tr>
-            <tr class="info-popularity">
-              <td class="col1">popularity</td>
-              <td class="info-popularity_value">100.2</td>
-            </tr>
-            <tr class="info-name">
-              <td class="col1">original title</td>
-              <td class="info-name_value">Dumbo</td>
-            </tr>
-            <tr class="info-genre">
-              <td class="col1" valign="top">genre</td>
-              <td class="info-genre_value">drama, geography, history</td>
-            </tr>
-          </table>
+      <!-- Movie-list
+       <ul></ul> -->
+    </section>
+    <!-- <<<<<<<<  SEARCH FORM EXAMPLE  >>>>>>>>> -->
 
-          <h2 class="about">About</h2>
-          <p class="description">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto
-            consequatur, sit laboriosam neque fuga rem eos alias porro
-            consectetur hic necessitatibus reprehenderit, totam voluptatum iste.
-          </p>
-        </section> -->
-        <!-- <<<<<<<<  SINGLE PAGE EXAMPLE  >>>>>>>>> -->
-        <!-- 
+    <!-- <<<<<<<<  PAGINATION EXAMPLE  >>>>>>>>> -->
+    <div class="main_content container js-result">
+
+    </div>
+
+    <div class="pagination container">
+      <button class="pagination_btn pagination_btn-prev" id="pagination_btn-prev">
+        prev
+      </button>
+      <div class="pagination_page">
+        <span class="pagination_value" id="pagination_value">1</span>
+      </div>
+      <button class="pagination_btn pagination_btn-next" id="pagination_btn-next">
+        next
+      </button>
+    </div>
+    <!-- <<<<<<<<  PAGINATION EXAMPLE  >>>>>>>>> -->
+    <div class="main_content container js-result">
+      <!-- <<<<<<<<  SINGLE PAGE EXAMPLE  >>>>>>>>> -->
+      <!-- <img class="poster" src="https://cdn.pixabay.com/photo/2015/09/19/23/01/cat-947816_960_720.jpg" alt="" />
+      <section class="main_info">
+        <h2 class="title">Dumbo (<span class="year">2019</span>)</h2>
+        <table class="info">
+          <tr class="info-votes">
+            <td class="col1">vote/votes</td>
+            <td class="info-votes_value">6.5/1402</td>
+          </tr>
+          <tr class="info-popularity">
+            <td class="col1">popularity</td>
+            <td class="info-popularity_value">100.2</td>
+          </tr>
+          <tr class="info-name">
+            <td class="col1">original title</td>
+            <td class="info-name_value">Dumbo</td>
+          </tr>
+          <tr class="info-genre">
+            <td class="col1" valign="top">genre</td>
+            <td class="info-genre_value">drama, geography, history</td>
+          </tr>
+        </table>
+
+        <h2 class="about">About</h2>
+        <p class="description">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto
+          consequatur, sit laboriosam neque fuga rem eos alias porro
+          consectetur hic necessitatibus reprehenderit, totam voluptatum iste.
+        </p>
+        <button class="button_later">
+          Watch later
+        </button>
+      </section> -->
+    </div>
+    <!-- <<<<<<<<  SINGLE PAGE EXAMPLE  >>>>>>>>> -->
+    <!-- 
         <div class="library_page-buttons container">
           <button class="button_watched button--is_active">
             Watched
@@ -133,7 +120,7 @@
             Watch later
           </button>
         </div> -->
-        <!-- <div class="container">
+    <!-- <div class="container">
           <ul class="cards">
             <li class="cards-item">
               <img
@@ -177,14 +164,15 @@
             </li>
           </ul>
         </div> -->
-      </div>
-      <footer class="footer">
-        <div class="container">
-          <p class="footer_text">
-            2020 Create by <a href="#" class="footer_text-item">Lebarde Team</a>
-          </p>
-        </div>
-      </footer>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <p class="footer_text">
+        2020 Create by <a href="#" class="footer_text-item">Lebarde Team</a>
+      </p>
     </div>
-  </body>
+  </footer>
+  </div>
+</body>
+
 </html>

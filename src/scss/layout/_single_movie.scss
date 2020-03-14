@@ -14,9 +14,35 @@
   }
 
   & .description {
+    margin-bottom: 20px;
     font-size: 1rem;
     color: #372c48;
     line-height: 18px;
+  }
+  & .watching_buttons {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  & .button {
+    position: relative;
+    // flex: 0 0 35%;
+    width: 45%;
+    border: 1px solid #c8d1d1;
+    border-radius: 5px;
+    height: 40px;
+    font-size: 22px;
+    line-height: 40px;
+    font-weight: bold;
+    color: #556270;
+    outline: none;
+    background-color: #f3f6f6;
+    font-family: 'Droid Sans';
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      color: #275c69;
+    }
   }
 
   & .main_info {
@@ -68,10 +94,17 @@
     }
 
     & .main_info {
+      display: flex;
+      flex-direction: column;
       width: 50%;
 
       & .title {
         font-size: 2rem;
+      }
+
+      & .button_later {
+        // width: 320px;
+        align-self: center;
       }
     }
   }
