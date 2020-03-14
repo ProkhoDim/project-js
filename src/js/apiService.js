@@ -26,6 +26,7 @@ export default {
       title: item.title,
       vote: item.vote_average,
       id: item.id,
+      release_date: item.release_date.split('-')[0],
     }));
   },
 
@@ -57,13 +58,10 @@ export default {
 
   getWatchedMovie(key) {
     const watchedMovieArr = JSON.parse(localStorage.getItem(key));
-    console.log(watchedMovieArr);
-    console.log(watchedMovieArr.map(item => item.data));
     return watchedMovieArr.map(item => item.data);
   },
 
   async getSearchedMovie(query) {
-    console.log('query', query);
     if (!query) {
       return this.getPopularMovies();
     }

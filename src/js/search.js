@@ -49,4 +49,45 @@ refs.libraryRef.addEventListener('click', e => {
   refs.mainContent.innerHTML =
     libraryPage() +
     searchListTemplate(apiService.getWatchedMovie('watchedIds'));
+  addLibraryListener();
 });
+
+refs.main.addEventListener('click', e => {
+  e.preventDefault();
+  refs.searchInput.value = '';
+  apiService.searchText = '';
+  randerByQuery('');
+  sowHiddenItem(refs.searchForm);
+  sowHiddenItem(refs.pagination);
+});
+
+(function(query) {
+  apiService.getSearchedMovie(query).then(data => {
+    clear(refs.mainContent);
+    refs.paginationValue.innerHTML = apiService.page;
+    insertItems(data, searchListTemplate);
+  });
+})();
+
+function addLibraryListener() {
+  refs.watched = document.querySelector('.button_watched');
+  refs.watchLater = document.querySelector('.button_later');
+
+  refs.watched.addEventListener('click', e => {
+    e.preventDefault();
+    refs.watchLater.classList.remove('button--is_active');
+    e.target.classList.add('button--is_active');
+    refs.mainContent.childNodes[1].outerHTML = searchListTemplate(
+      apiService.getWatchedMovie('watchedIds'),
+    );
+  });
+
+  refs.watchLater.addEventListener('click', e => {
+    e.preventDefault();
+    refs.watched.classList.remove('button--is_active');
+    e.target.classList.add('button--is_active');
+    refs.mainContent.childNodes[1].outerHTML = searchListTemplate(
+      apiService.getWatchedMovie('watchLaterIds'),
+    );
+  });
+}

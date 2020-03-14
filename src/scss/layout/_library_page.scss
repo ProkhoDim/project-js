@@ -38,11 +38,15 @@
 }
 
 .film_name {
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 10px;
   width: 90%;
-  color: white;
+  color: #fff;
   font-family: 'Roboto';
-  font-size: 1rem;
+  font-size: 1.2rem;
   position: absolute;
+  background: #5f9b96;
   left: 10px;
   bottom: 10px;
 }
