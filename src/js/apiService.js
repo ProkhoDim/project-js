@@ -25,8 +25,9 @@ export default {
           : `https://image.tmdb.org/t/p/w500${item.poster_path}`,
       title: item.title,
       vote: item.vote_average,
-      release_date:
-        item.release_date !== '' ? `(${item.release_date.split('-')[0]})` : '',
+      release_date: item.release_date
+        ? `(${item.release_date.split('-')[0]})`
+        : '',
       id: item.id,
     }));
   },
@@ -51,8 +52,9 @@ export default {
       overview: data.overview,
       vote: data.vote_average,
       votes: data.vote_count,
-      release_date:
-        data.release_date !== '' ? `(${data.release_date.split('-')[0]})` : '',
+      release_date: data.release_date
+        ? `(${data.release_date.split('-')[0]})`
+        : '',
       popularity: data.popularity,
       id: data.id,
     };
@@ -93,8 +95,9 @@ export default {
           : `https://image.tmdb.org/t/p/w500${item.poster_path}`,
       original_title: item.original_title,
       title: item.title,
-      release_date:
-        item.release_date !== '' ? `(${item.release_date.split('-')[0]})` : '',
+      release_date: item.release_date
+        ? `(${item.release_date.split('-')[0]})`
+        : '',
       vote: item.vote_average,
       id: item.id,
     }));

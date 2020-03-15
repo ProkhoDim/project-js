@@ -20,10 +20,10 @@ function showHiddenItem(item) {
 }
 
 function randerByQuery(query) {
-  apiService.getSearchedMovie(query).then(data => {
+  return apiService.getSearchedMovie(query).then(data => {
     clear(refs.mainContent);
-    refs.paginationValue.innerHTML = apiService.page;
     insertItems(data, searchListTemplate);
+    return data;
   });
 }
 

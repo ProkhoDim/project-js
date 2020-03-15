@@ -14,12 +14,16 @@ refs.searchInput.addEventListener('keypress', event => {
 });
 
 refs.paginationBtnNext.addEventListener('click', () => {
-  apiService.updatePage();
-  randerByQuery(apiService.searchText);
+  randerByQuery(apiService.searchText).then(data => {
+    refs.paginationValue.innerHTML = apiService.page;
+    if (data.length === 20) apiService.updatePage();
+  });
 });
 
 refs.paginationBtnPrev.addEventListener('click', () => {
-  if (apiService.page === 1) return;
-  apiService.downgradePage();
-  randerByQuery(apiService.searchText);
+  randerByQuery(apiService.searchText).then(() => {
+    refs.paginationValue.innerHTML = apiService.page;
+    if (apiService.page === 1) return;
+    apiService.downgradePage();
+  });
 });
