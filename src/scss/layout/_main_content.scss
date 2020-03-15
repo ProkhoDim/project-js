@@ -4,11 +4,6 @@
   align-items: center;
 }
 
-.container {
-  display: flex;
-  justify-content: space-between;
-}
-
 @media screen and (min-width: 1024px) {
   .main_content {
     flex-flow: row wrap;

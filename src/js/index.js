@@ -1,4 +1,5 @@
 import './apiService';
-import './markup';
+import './startPageRander';
+import './library';
 import './search';
 import './details';

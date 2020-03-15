@@ -1,4 +1,4 @@
-.library_page-buttons {
+.library-page_buttons {
   display: flex;
   justify-content: center;
   padding: 12px 0 15px;
@@ -23,26 +23,32 @@
 
 .cards {
   padding-top: 20px;
+  &-item {
+    position: relative;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    background-color: #e6e6e6;
+  }
 }
 
-.cards-item {
-  position: relative;
-  margin-bottom: 12px;
-}
-.cards-item img {
+.cards .cards-item img {
   width: 300px;
-  height: 160px;
+  height: 355px;
   object-fit: cover;
   margin: 0 auto;
   border-radius: 10px;
 }
 
 .film_name {
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 10px;
   width: 90%;
-  color: white;
+  color: #fff;
   font-family: 'Roboto';
-  font-size: 1rem;
+  font-size: 1.2rem;
   position: absolute;
+  background: rgba(95, 155, 150, 0.8);
   left: 10px;
   bottom: 10px;
 }
@@ -60,6 +66,7 @@
   top: 15px;
   right: 15px;
 }
+
 @media screen and (min-width: 1024px) {
   .library_page-container {
     max-width: 700px;
@@ -67,9 +74,24 @@
   .library_page-buttons button {
     width: 350px;
   }
+
   .cards {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
+    padding-top: 20px;
+    & :nth-child(4n) {
+      margin-right: 0;
+    }
+    &-item {
+      width: 24%;
+      position: relative;
+      margin-bottom: 12px;
+      margin-right: 12px;
+    }
+  }
+
+  .cards .film_name {
+    font-size: 1rem;
   }
 }
