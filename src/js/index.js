@@ -3,3 +3,4 @@ import './startPageRander';
 import './library';
 import './search';
 import './details';
+import './home';
