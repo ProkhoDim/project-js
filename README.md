@@ -2,6 +2,11 @@
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
+## Requirements
+
+- node = 10.16.3
+- npm = 6.9.0
+
 # В первую очередь!
 
 - Переходим по этой ссылке: https://github.com/ProkhoDim/project-js/invitations
