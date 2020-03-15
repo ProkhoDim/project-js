@@ -1,7 +1,4 @@
 import * as data from './objToLocalStor';
-import apiService from './apiService';
-import refs from './refs';
-import searchListTemplate from '../templates/cardsList.hbs';
 
 function addItem(elem, currentKey, checkedKey) {
   elem.addEventListener('click', e => {
@@ -12,29 +9,6 @@ function addItem(elem, currentKey, checkedKey) {
     rewrightLocalStorage(currentKey, checkedKey);
   });
 }
-
-// function addLibraryListener() {
-//   refs.watched = document.querySelector('.button_watched');
-//   refs.watchLater = document.querySelector('.button_later');
-
-//   refs.watched.addEventListener('click', e => {
-//     e.preventDefault();
-//     refs.watchLater.classList.remove('button--is_active');
-//     e.target.classList.add('button--is_active');
-//     refs.mainContent.childNodes[1].outerHTML = searchListTemplate(
-//       apiService.getWatchedMovie('watchedIds'),
-//     );
-//   });
-
-//   refs.watchLater.addEventListener('click', e => {
-//     e.preventDefault();
-//     refs.watched.classList.remove('button--is_active');
-//     e.target.classList.add('button--is_active');
-//     refs.mainContent.childNodes[1].outerHTML = searchListTemplate(
-//       apiService.getWatchedMovie('watchLaterIds'),
-//     );
-//   });
-// }
 
 function setLocalStorageIdsOnClick(event, key) {
   const LocalStorIdsdArr = JSON.parse(localStorage.getItem(key));
