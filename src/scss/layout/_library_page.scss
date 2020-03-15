@@ -23,16 +23,15 @@
 
 .cards {
   padding-top: 20px;
+  &-item {
+    position: relative;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    background-color: #e6e6e6;
+  }
 }
 
-.cards-item {
-  position: relative;
-  margin-bottom: 12px;
-  border-radius: 10px;
-  background-color: #e6e6e6;
-}
-
-.cards-item img {
+.cards .cards-item img {
   width: 300px;
   height: auto;
   object-fit: cover;
@@ -67,6 +66,7 @@
   top: 15px;
   right: 15px;
 }
+
 @media screen and (min-width: 1024px) {
   .library_page-container {
     max-width: 700px;
@@ -78,17 +78,20 @@
   .cards {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding-top: 20px;
+    & :nth-child(4n) {
+      margin-right: 0;
+    }
+    &-item {
+      width: 24%;
+      position: relative;
+      margin-bottom: 12px;
+      margin-right: 12px;
+    }
   }
 
-  .cards-item {
-    width: 24%;
-    position: relative;
-    margin-bottom: 12px;
-  }
-
-  .film_name {
+  .cards .film_name {
     font-size: 1rem;
   }
 }
