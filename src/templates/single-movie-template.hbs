@@ -1,0 +1,29 @@
+<img class="poster" src="{{imageURL}}" alt="{{original_title}}">
+<section class="main_info">
+    <h2 class="title">{{title}} {{release_date}}</h2>
+    <table class="info">
+        <tr class="info-votes">
+            <td class="col1">vote/votes</td>
+            <td class="info-votes_value">{{vote}}/{{votes}}</td>
+        </tr>
+        <tr class="info-popularity">
+            <td class="col1">popularity</td>
+            <td class="info-popularity_value">{{popularity}}</td>
+        </tr>
+        <tr class="info-name">
+            <td class="col1">original title</td>
+            <td class="info-name_value">{{title}}</td>
+        </tr>
+        <tr class="info-genre">
+            <td class="col1" valign="top">genre</td>
+            <td class="info-genre_value">{{genres}}</td>
+        </tr>
+    </table>
+    <h2 class="about">About</h2>
+    <p class="description">{{overview}}</p>
+    <div class="watching_buttons">
+        <button class="button button_watched" data-id="{{id}}">Watched</button>
+        <button class="button button_later" data-id="{{id}}">Watch later</button>
+    </div>
+
+</section>

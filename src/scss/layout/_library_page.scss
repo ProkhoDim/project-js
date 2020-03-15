@@ -1,0 +1,97 @@
+.library-page_buttons {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0 15px;
+
+  & button {
+    width: 140px;
+    height: 40px;
+    border: none;
+    background-color: white;
+    border-bottom: 2px solid #9895a2;
+    font-family: 'Roboto';
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  & .button--is_active {
+    color: white;
+    background-color: #77c1bb;
+    border-bottom: none;
+  }
+}
+
+.cards {
+  padding-top: 20px;
+  &-item {
+    position: relative;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    background-color: #e6e6e6;
+  }
+}
+
+.cards .cards-item img {
+  width: 300px;
+  height: 355px;
+  object-fit: cover;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.film_name {
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 10px;
+  width: 90%;
+  color: #fff;
+  font-family: 'Roboto';
+  font-size: 1.2rem;
+  position: absolute;
+  background: rgba(95, 155, 150, 0.8);
+  left: 10px;
+  bottom: 10px;
+}
+
+.film_rate {
+  font-family: 'Roboto';
+  font-weight: 500;
+  position: absolute;
+  text-align: center;
+  padding: 5px 10px;
+  background: #77c1bb;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #000;
+  top: 15px;
+  right: 15px;
+}
+
+@media screen and (min-width: 1024px) {
+  .library_page-container {
+    max-width: 700px;
+  }
+  .library_page-buttons button {
+    width: 350px;
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-top: 20px;
+    & :nth-child(4n) {
+      margin-right: 0;
+    }
+    &-item {
+      width: 24%;
+      position: relative;
+      margin-bottom: 12px;
+      margin-right: 12px;
+    }
+  }
+
+  .cards .film_name {
+    font-size: 1rem;
+  }
+}
