@@ -91,3 +91,11 @@
     font-family: 'Droid Sans';
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .search-form {
+    &_input {
+      width: 962px;
+    }
+  }
+}

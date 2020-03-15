@@ -1,6 +1,6 @@
 import * as data from './objToLocalStor';
 
-export function addItem(elem, currentKey, checkedKey) {
+function addItem(elem, currentKey, checkedKey) {
   elem.addEventListener('click', e => {
     if (e.currentTarget !== e.target) return;
     setLocalStorageIdsOnClick(e, currentKey);
@@ -38,5 +38,7 @@ function rewrightLocalStorage(check, clear) {
   const array = JSON.parse(localStorage.getItem(clear)).filter(
     item => !checkedArray.includes(item.id),
   );
-  return localStorage.setItem(clear, JSON.stringify(array));
+  localStorage.setItem(clear, JSON.stringify(array));
 }
+
+export { addItem };

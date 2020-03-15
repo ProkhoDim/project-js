@@ -25,6 +25,8 @@ export default {
           : `https://image.tmdb.org/t/p/w500${item.poster_path}`,
       title: item.title,
       vote: item.vote_average,
+      release_date:
+        item.release_date !== '' ? `(${item.release_date.split('-')[0]})` : '',
       id: item.id,
     }));
   },
@@ -49,21 +51,29 @@ export default {
       overview: data.overview,
       vote: data.vote_average,
       votes: data.vote_count,
-      release_date: data.release_date.split('-')[0],
+      release_date:
+        data.release_date !== '' ? `(${data.release_date.split('-')[0]})` : '',
       popularity: data.popularity,
       id: data.id,
     };
   },
 
-  getWatchedMovie(key) {
-    const watchedMovieArr = JSON.parse(localStorage.getItem(key));
-    console.log(watchedMovieArr);
-    console.log(watchedMovieArr.map(item => item.data));
-    return watchedMovieArr.map(item => item.data);
+  async getWatchedMovie(id) {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${this.API_KEY}&language=en-US`,
+    );
+    const data = await response.json();
+    return {
+      imageURL:
+        data.poster_path === null
+          ? 'https://consaltliga.com.ua/wp-content/themes/consultix/images/no-image-found-360x250.png'
+          : `https://image.tmdb.org/t/p/w500${data.poster_path}`,
+      title: data.title,
+      vote: data.vote_average,
+    };
   },
 
   async getSearchedMovie(query) {
-    console.log('query', query);
     if (!query) {
       return this.getPopularMovies();
     }
@@ -83,7 +93,8 @@ export default {
           : `https://image.tmdb.org/t/p/w500${item.poster_path}`,
       original_title: item.original_title,
       title: item.title,
-      release_date: item.release_date.split('-')[0],
+      release_date:
+        item.release_date !== '' ? `(${item.release_date.split('-')[0]})` : '',
       vote: item.vote_average,
       id: item.id,
     }));
