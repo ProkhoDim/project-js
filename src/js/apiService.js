@@ -26,7 +26,7 @@ export default {
       title: item.title,
       vote: item.vote_average,
       release_date:
-        item.release_date !== undefined ? item.release_date.split('-')[0] : '',
+        item.release_date !== '' ? `(${item.release_date.split('-')[0]})` : '',
       id: item.id,
     }));
   },
@@ -52,7 +52,7 @@ export default {
       vote: data.vote_average,
       votes: data.vote_count,
       release_date:
-        item.release_date !== undefined ? item.release_date.split('-')[0] : '',
+        data.release_date !== '' ? `(${data.release_date.split('-')[0]})` : '',
       popularity: data.popularity,
       id: data.id,
     };
@@ -94,7 +94,7 @@ export default {
       original_title: item.original_title,
       title: item.title,
       release_date:
-        item.release_date !== undefined ? item.release_date.split('-')[0] : '',
+        item.release_date !== '' ? `(${item.release_date.split('-')[0]})` : '',
       vote: item.vote_average,
       id: item.id,
     }));
