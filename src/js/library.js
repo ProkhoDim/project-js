@@ -29,17 +29,6 @@ function addLibraryListener() {
   });
 }
 
-function parseFromLocalStor(query) {
-  const parsedIds = JSON.parse(localStorage.getItem(query));
-  let insertArr = [];
-
-  for (const movie of parsedIds) {
-    insertArr.push(movie.data);
-  }
-
-  insertItems(insertArr, searchListTemplate);
-}
-
 function parseList(query) {
   if (query === 'watchedIds') {
     refs.watchLater.classList.remove('button--is_active');
@@ -53,4 +42,15 @@ function parseList(query) {
   if (!!cardList) cardList.remove();
 
   parseFromLocalStor(query);
+}
+
+function parseFromLocalStor(query) {
+  const parsedIds = JSON.parse(localStorage.getItem(query));
+  let insertArr = [];
+
+  for (const movie of parsedIds) {
+    insertArr.push(movie.data);
+  }
+
+  insertItems(insertArr, searchListTemplate);
 }
