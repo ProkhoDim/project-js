@@ -1,6 +1,9 @@
 import * as data from './objToLocalStor';
+import apiService from './apiService';
+import refs from './refs';
+import searchListTemplate from '../templates/cardsList.hbs';
 
-export function addItem(elem, currentKey, checkedKey) {
+function addItem(elem, currentKey, checkedKey) {
   elem.addEventListener('click', e => {
     if (e.currentTarget !== e.target) return;
     setLocalStorageIdsOnClick(e, currentKey);
@@ -9,6 +12,29 @@ export function addItem(elem, currentKey, checkedKey) {
     rewrightLocalStorage(currentKey, checkedKey);
   });
 }
+
+// function addLibraryListener() {
+//   refs.watched = document.querySelector('.button_watched');
+//   refs.watchLater = document.querySelector('.button_later');
+
+//   refs.watched.addEventListener('click', e => {
+//     e.preventDefault();
+//     refs.watchLater.classList.remove('button--is_active');
+//     e.target.classList.add('button--is_active');
+//     refs.mainContent.childNodes[1].outerHTML = searchListTemplate(
+//       apiService.getWatchedMovie('watchedIds'),
+//     );
+//   });
+
+//   refs.watchLater.addEventListener('click', e => {
+//     e.preventDefault();
+//     refs.watched.classList.remove('button--is_active');
+//     e.target.classList.add('button--is_active');
+//     refs.mainContent.childNodes[1].outerHTML = searchListTemplate(
+//       apiService.getWatchedMovie('watchLaterIds'),
+//     );
+//   });
+// }
 
 function setLocalStorageIdsOnClick(event, key) {
   const LocalStorIdsdArr = JSON.parse(localStorage.getItem(key));
@@ -38,5 +64,7 @@ function rewrightLocalStorage(check, clear) {
   const array = JSON.parse(localStorage.getItem(clear)).filter(
     item => !checkedArray.includes(item.id),
   );
-  return localStorage.setItem(clear, JSON.stringify(array));
+  localStorage.setItem(clear, JSON.stringify(array));
 }
+
+export { addItem };

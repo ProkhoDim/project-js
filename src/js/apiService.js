@@ -1,7 +1,7 @@
 export default {
   API_KEY: '168af0fe4d819af69af0e65f181d8d99',
   page: 1,
-  searchText: '',
+  searchText: [],
   updatePage() {
     this.page += 1;
   },
@@ -25,8 +25,8 @@ export default {
           : `https://image.tmdb.org/t/p/w500${item.poster_path}`,
       title: item.title,
       vote: item.vote_average,
-      id: item.id,
       release_date: item.release_date.split('-')[0],
+      id: item.id,
     }));
   },
 
@@ -56,9 +56,19 @@ export default {
     };
   },
 
-  getWatchedMovie(key) {
-    const watchedMovieArr = JSON.parse(localStorage.getItem(key));
-    return watchedMovieArr.map(item => item.data);
+  async getWatchedMovie(id) {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${this.API_KEY}&language=en-US`,
+    );
+    const data = await response.json();
+    return {
+      imageURL:
+        data.poster_path === null
+          ? 'https://consaltliga.com.ua/wp-content/themes/consultix/images/no-image-found-360x250.png'
+          : `https://image.tmdb.org/t/p/w500${data.poster_path}`,
+      title: data.title,
+      vote: data.vote_average,
+    };
   },
 
   async getSearchedMovie(query) {

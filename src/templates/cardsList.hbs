@@ -1,11 +1,9 @@
-<div class="container">
-    <ul class="cards">
-        {{#each this}}
-        <li class="cards-item" data-id="{{id}}">
-            <img src="{{imageURL}}" alt="{{original_title}}">
-            <p class="film_name">{{title}}({{release_date}})</p>
-            <p class="film_rate js_film_rate">{{vote}}</p>
-        </li>
-        {{/each}}
-    </ul>
-</div>
+<ul class="cards">
+    {{#each this}}
+    <li class="cards-item" data-id="{{id}}">
+        <img src="{{imageURL}}" alt="{{original_title}}">
+        <p class="film_name">{{title}}({{release_date}})</p>
+        <p class="film_rate js_film_rate">{{vote}}</p>
+    </li>
+    {{/each}}
+</ul>
