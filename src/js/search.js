@@ -1,6 +1,7 @@
 import apiService from './apiService';
 import refs from './refs';
-import { showHiddenItem, randerByQuery } from './markup';
+import { showHiddenItem, randerByQuery, insertItems, clear } from './markup';
+import searchListTemplate from '../templates/cardsList.hbs';
 
 refs.searchInput.addEventListener('keypress', event => {
   apiService.searchText = refs.searchInput.value;
@@ -14,16 +15,30 @@ refs.searchInput.addEventListener('keypress', event => {
 });
 
 refs.paginationBtnNext.addEventListener('click', () => {
-  randerByQuery(apiService.searchText).then(data => {
-    refs.paginationValue.innerHTML = apiService.page;
-    if (data.length === 20) apiService.updatePage();
-  });
+  apiService
+    .getSearchedMovie(apiService.searchText)
+    .then(data => {
+      if (data.length === 20) apiService.updatePage();
+    })
+    .then(() => apiService.getSearchedMovie(apiService.searchText))
+    .then(data => {
+      refs.paginationValue.innerHTML = apiService.page;
+      clear(refs.mainContent);
+      insertItems(data, searchListTemplate);
+    });
 });
 
 refs.paginationBtnPrev.addEventListener('click', () => {
-  randerByQuery(apiService.searchText).then(() => {
-    refs.paginationValue.innerHTML = apiService.page;
-    if (apiService.page === 1) return;
-    apiService.downgradePage();
-  });
+  apiService
+    .getSearchedMovie(apiService.searchText)
+    .then(() => {
+      if (apiService.page === 1) return;
+      apiService.downgradePage();
+    })
+    .then(() => apiService.getSearchedMovie(apiService.searchText))
+    .then(data => {
+      refs.paginationValue.innerHTML = apiService.page;
+      clear(refs.mainContent);
+      insertItems(data, searchListTemplate);
+    });
 });
