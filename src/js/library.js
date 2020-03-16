@@ -2,6 +2,7 @@ import refs from './refs';
 import searchListTemplate from '../templates/cardsList.hbs';
 import libPageTemplate from '../templates/library_page.hbs';
 import { insertItems, clear, hideItem } from './markup';
+import errorTemplate from '../templates/error.hbs';
 
 refs.libraryRef.addEventListener('click', e => {
   e.preventDefault();
@@ -10,8 +11,15 @@ refs.libraryRef.addEventListener('click', e => {
   hideItem(refs.pagination);
 
   insertItems('', libPageTemplate);
-  parseFromLocalStor('watchedIds');
+
   addLibraryListener();
+  try {
+    if (!parseFromLocalStor('watchedIds')) {
+      refs.watched.classList.remove('button--is_active');
+      refs.watchLater.classList.add('button--is_active');
+      parseFromLocalStor('watchLaterIds');
+    }
+  } catch {}
 });
 
 function addLibraryListener() {
@@ -47,10 +55,11 @@ function parseList(query) {
 function parseFromLocalStor(query) {
   const parsedIds = JSON.parse(localStorage.getItem(query));
   let insertArr = [];
-
+  if (!parsedIds) return false;
   for (const movie of parsedIds) {
     insertArr.push(movie.data);
   }
 
   insertItems(insertArr, searchListTemplate);
+  return true;
 }
