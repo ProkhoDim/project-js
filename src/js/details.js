@@ -18,7 +18,6 @@ function showDetails() {
         hideItem(refs.searchForm);
         hideItem(refs.pagination);
         insertItems(data, movieDetails);
-        console.log(data.release_date);
         return data;
       })
       .then(data => {

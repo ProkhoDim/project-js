@@ -11,6 +11,7 @@ refs.searchInput.addEventListener('keypress', event => {
     apiService.resetPage();
     showHiddenItem(refs.pagination);
     randerByQuery(apiService.searchText);
+    refs.paginationValue.innerHTML = apiService.page;
   }
 });
 
@@ -25,6 +26,7 @@ refs.paginationBtnNext.addEventListener('click', () => {
       refs.paginationValue.innerHTML = apiService.page;
       clear(refs.mainContent);
       insertItems(data, searchListTemplate);
+      window.scrollTo(0, 0);
     });
 });
 
@@ -40,5 +42,6 @@ refs.paginationBtnPrev.addEventListener('click', () => {
       refs.paginationValue.innerHTML = apiService.page;
       clear(refs.mainContent);
       insertItems(data, searchListTemplate);
+      window.scrollTo(0, 0);
     });
 });
