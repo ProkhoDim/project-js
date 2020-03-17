@@ -12,5 +12,10 @@
     font-family: 'Kaushan Script', cursive;
     font-size: 20px;
     color: rgb(250, 48, 48);
+    transition: color 200ms linear;
+    &:hover,
+    &:focus {
+      color: #e6fd63;
+    }
   }
 }

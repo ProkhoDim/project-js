@@ -53,6 +53,24 @@
   }
 }
 
+.logo,
+.menu_list-item {
+  transition: transform 200ms linear;
+  &:hover,
+  &:focus {
+    transform: scale(1.05, 1.05);
+  }
+}
+
+.logo-link,
+.menu_list-link {
+  transition: color 200ms linear;
+  &:hover,
+  &:focus {
+    color: #e6fd63;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .header {
     height: 120px;

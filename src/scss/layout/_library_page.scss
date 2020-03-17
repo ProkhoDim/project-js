@@ -28,6 +28,12 @@
     margin-bottom: 12px;
     border-radius: 10px;
     background-color: #e6e6e6;
+    cursor: pointer;
+    transition: transform 200ms linear;
+    &:hover,
+    &:focus {
+      transform: scale(1.05, 1.05);
+    }
   }
 }
 
@@ -51,6 +57,7 @@
   background: rgba(95, 155, 150, 0.8);
   left: 10px;
   bottom: 10px;
+  transition: color 200ms linear;
 }
 
 .film_rate {
@@ -88,6 +95,10 @@
       position: relative;
       margin-bottom: 12px;
       margin-right: 12px;
+      &:hover .film_name,
+      &:focus .film_name {
+        color: #e6fd63;
+      }
     }
   }
 
