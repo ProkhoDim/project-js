@@ -8,7 +8,8 @@
     "build": "webpack --env.mode production --config ./webpack/config.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "commit": "npx git-cz"
+    "commit": "npx git-cz",
+    "test": "jest ./test"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "commitizen": "^4.0.3",
     "css-loader": "^3.2.0",
     "cz-conventional-changelog": "^3.1.0",
+    "esm": "^3.2.25",
     "file-loader": "^4.2.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "gh-pages": "^2.1.1",

@@ -6,7 +6,7 @@ export default {
     this.page += 1;
   },
   downgradePage() {
-    if (!this.page) return;
+    if (!this.page || this.page === 1) return;
     this.page -= 1;
   },
   resetPage() {
